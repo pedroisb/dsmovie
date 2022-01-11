@@ -1,6 +1,7 @@
 import MovieScore from "components/MovieScore";
+import { Link } from "react-router-dom";
 
-// não há necessidade de criar e importar um arquivo de estilos para o componente MovieCard, pois compartilha nome de classes com outros componentes, os quais já possuem estilização
+// não há necessidade de criar e importar um arquivo de estilos para o componente MovieCard, pois este compartilha nome de classes com outros componentes, os quais já possuem estilização
 
 
 function MovieCard() {
@@ -19,7 +20,11 @@ function MovieCard() {
             <div className="dsmovie-card-bottom-container">
                 <h3>{movie.title}</h3>
                 <MovieScore />
-                <div className="btn btn-primary dsmovie-btn">Avaliar</div>
+
+                <Link to= {`/form/${movie.id}`}>
+                    <div className="btn btn-primary dsmovie-btn">Avaliar</div>
+                </Link>
+
             </div>
         </div>
     )
