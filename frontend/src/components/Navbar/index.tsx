@@ -1,4 +1,4 @@
-import {ReactComponent as GithubIcon} from 'assets/img/github.svg'; //Note que Nélio a importou como componente e não a armazenando em uma variável
+import { ReactComponent as GithubIcon } from 'assets/img/github.svg'; //Note que Nélio a importou como componente e não a armazenando em uma variável
 import './styles.css';
 
 function Navbar() {
