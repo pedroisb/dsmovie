@@ -1,9 +1,13 @@
 package com.devsuperior.dsmovie.entities;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +21,9 @@ public class Movie {
 	private Double score;
 	private Integer count;
 	private String image;
+	
+	@OneToMany(mappedBy = "id.movie")
+	private Set<Score> scores = new HashSet<>();
 	
 	public Movie() {}
 
@@ -67,10 +74,14 @@ public class Movie {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
-	
+
+	public Set<Score> getScores() {
+		return scores;
+	}
 }
 
 // classes são mais adequadas para guardar dados no banco do que tipos primitivos, pois aceitam heranças, valores nulos e mais
 
 // Nélio - aulas sobre o tema: Encapsulamento e Super Revisão (OO e SQL)
+
+// Utilizou-se Set para scores, pois garante que não haverá repetição de dados - Set representa um conjunto de elementos únicos (no caso, objetos Score). Lembre-se que Set é uma interface e, portanto, não pode ser instanciada, daí utilizar HashSet
