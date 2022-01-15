@@ -9,7 +9,6 @@ import "./styles.css";
 
 function Listing() {
 
-
     const [pageNumber, setPageNumber] = useState(0);
     // trata-se de boa prática empregar useState com um valor inicial
 
@@ -34,9 +33,13 @@ function Listing() {
     }, [pageNumber]);
     // o segundo argumento do useEffect é uma lista de objetos a ser observada pelo Hook. sempre que houver alteração em qualquer um dos objetos elencados, o comportamento previsto será executado. caso a lista esteja vazia, o comportamento será executado apenas quando o componente for carregado
 
+    const handlePageChange = (newPageNumber : number) => {
+        setPageNumber(newPageNumber);
+    }
+
     return (
         <>
-            <Pagination />
+            <Pagination page={page} onChange={handlePageChange} />
             <div className="container">
                 <div className="row">
 
