@@ -33,7 +33,7 @@ function Listing() {
     }, [pageNumber]);
     // o segundo argumento do useEffect é uma lista de objetos a ser observada pelo Hook. sempre que houver alteração em qualquer um dos objetos elencados, o comportamento previsto será executado. caso a lista esteja vazia, o comportamento será executado apenas quando o componente for carregado
 
-    const handlePageChange = (newPageNumber : number) => {
+    const handlePageChange = (newPageNumber: number) => {
         setPageNumber(newPageNumber);
     }
 
@@ -43,12 +43,13 @@ function Listing() {
             <div className="container">
                 <div className="row">
 
-                    {page.content.map(movie => (
-                        <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
-                            <MovieCard movie={movie} />
-                        </div>
-                    )
-                    )}
+                    {page.content.map(movie => {
+                        return (
+                            <div key={movie.id} className="col-sm-6 col-lg-4 col-xl-3 mb-3">
+                                <MovieCard movie={movie} />
+                            </div>
+                        )
+                    })}
                     {/* em uma renderização dinâmica de coleção, cada elemento renderizado DEVE possuir um atributo key */}
                     {/* "col-sm-6": significa que o card ocupará 6 das 12 colunas do grid system do react bootstrap a partir do breakpoint small (sm) */}
                     {/* "mb-3": margin-botton 3 */}
